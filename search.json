@@ -1,30 +1,44 @@
 [
   {
-    "objectID": "posts/welcome/index.html",
-    "href": "posts/welcome/index.html",
-    "title": "Welcome To My Blog",
+    "objectID": "posts/post-with-code/index.html",
+    "href": "posts/post-with-code/index.html",
+    "title": "TikZ-Plotting",
     "section": "",
-    "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
+    "text": "TikZ is an extremely versatile LaTeX package used for creating high-quality vector graphics, diagrams, graphs and plots. It provides a flexible and structured way to generate complex illustrations directly within LaTeX documents.Hence it is an essential tool for scientific and technical publications. We can also make flowcharts and circuit diagrams using the various libraries that TikZ has to offer. We have discussed the same in the further sections."
+  },
+  {
+    "objectID": "posts/post-with-code/index.html#rc-circuit-latex-code",
+    "href": "posts/post-with-code/index.html#rc-circuit-latex-code",
+    "title": "TikZ-Plotting",
+    "section": "RC Circuit LaTeX Code",
+    "text": "RC Circuit LaTeX Code\n\\documentclass{article}\n\\usepackage{circuitikz}\n\\begin{document}\n\\begin{circuitikz}\n\\draw (0,0) to[sinusoidal voltage source, l=$V_{in}$] (0,3);\n\\draw (0,3) to[resistor, l=$R$] (3,3);\n\\draw (3,3) to[capacitor, l=$C$] (3,0);\n\\draw (3,0) -- (0,0);\n\\end{circuitikz}\n\\end{document}\n\nWe first define the document type, here it is an article.\nWe then load our “circuitikz” library and enter into the TikZ environment.\nWe define coordinates of various circuit elements as per our requirements.\nOnce we have written our code, we exit the TikZ environment by “\\end{circuitikz} \\end{document}”.\n\n\nOutput :\n\n\n\n\nTikZ Circuit Diagram"
+  },
+  {
+    "objectID": "posts/post-with-code/index.html#d-plotting",
+    "href": "posts/post-with-code/index.html#d-plotting",
+    "title": "TikZ-Plotting",
+    "section": "3-D Plotting:",
+    "text": "3-D Plotting:\n\\documentclass{article}\n\\usepackage{pgfplots}\n\\pgfplotsset{compat=1.18}\n\\begin{document}\n\\begin{tikzpicture}\n    \\begin{axis}[\n        title={3D Plot of $z = x^2 - y^2$},\n        axis lines=center,\n        xlabel={$x$}, ylabel={$y$}, zlabel={$z$},\n        xtick={-2,-1,0,1,2},\n        ytick={-2,-1,0,1,2},\n        ztick={-4,-2,0,2,4},\n        domain=-2:2,\n        y domain=-2:2,\n        colormap/viridis,\n        samples=20,\n        samples y=20,\n        enlargelimits=true\n    ]\n\\addplot3[\n            surf,\n        ] {x^2 - y^2};\n\\end{axis}\n\\end{tikzpicture}\n\\end{document}\n\nOutput:\n\n\n\n\n3-D Plot"
+  },
+  {
+    "objectID": "posts/post-with-code/index.html#flowchart",
+    "href": "posts/post-with-code/index.html#flowchart",
+    "title": "TikZ-Plotting",
+    "section": "Flowchart",
+    "text": "Flowchart\n\\documentclass{article}\n    \\usepackage{tikz}\n    \\usetikzlibrary{shapes.geometric, arrows}\n    \n    \\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=black, fill=red!30]\n    \\tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=blue!20]\n    \\tikzstyle{decision} = [diamond, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=yellow!30]\n    \\tikzstyle{arrow} = [thick,-&gt;,&gt;=stealth]\n    \n    \\begin{document}\n    \\begin{tikzpicture}\n        % Nodes\n        \\node (start) [startstop] {Start};\n        \\node (process1) [process, below of=start, yshift=-1cm] {Process 1};\n        \\node (decision) [decision, below of=process1, yshift=-1cm] {Condition?};\n        \\node (process2) [process, right of=decision, xshift=4cm] {Process 2};\n        \\node (stop) [startstop, below of=decision, yshift=-2cm] {Stop};\n    \n        % Arrows\n        \\draw [arrow] (start) -- (process1);\n        \\draw [arrow] (process1) -- (decision);\n        \\draw [arrow] (decision.east) -- (process2.west) node[midway, above] {Yes};\n        \\draw [arrow] (decision.south) -- (stop.north) node[midway, right] {No};\n        \\draw [arrow] (process2) |- (stop);\n    \\end{tikzpicture}\n    \\end{document}\n\nHere after loading the libraries, we define custom styles for our flowchart elements. We make red,blue and yellow colored rectangles for Start-Stop, Process and Condition statements respectively.\nWe then begin our document and start drawing the flowchart. This opens a TikZ environment.\nWe create the flowchart nodes:\n\nWe place the “Start” node at the top using the startstop style.\nA process step called “Process 1” is placed below “Start”.\nA decision-making diamond labeled “Condition?” follows below Process 1.\n“Process 2” is placed to the right of the decision node.\nA “Stop” node is placed below the decision node.\n\n“(start) – (process1)” draws an arrow from “Start” to “Process 1”.\n\nSimilarly we connect Process 1 to decision node.\nIf the condition is Yes, we move right to “Process 2”.\nIf the condition is No, we move downward to “Stop”.\n\nFrom “Process 2”, we return to “Stop”.\nTo end, we close the TikZ and document environment: This ends our flowchart and completes the document.\n\n\nOutput:\n\n\n\n\nDecision Making Flowchart"
+  },
+  {
+    "objectID": "posts/post-with-code/index.html#cartesian-plot-of-parabola",
+    "href": "posts/post-with-code/index.html#cartesian-plot-of-parabola",
+    "title": "TikZ-Plotting",
+    "section": "Cartesian Plot of Parabola",
+    "text": "Cartesian Plot of Parabola\n\\documentclass{article}\n\\usepackage{tikz}\n\n\\begin{document}\n\n\\begin{tikzpicture}\n    % Draw grid\n    \\draw[step=1cm, gray, very thin] (-3.9,-1.9) grid (3.9,4.9);\n    \n    % Draw x and y axis\n    \\draw[thick,-&gt;] (-4,0) -- (4,0) node[right] {\\textbf{x-axis}};\n    \\draw[thick,-&gt;] (0,-2) -- (0,5) node[above] {\\textbf{y-axis}};\n\n    % Plot a parabola y = x^2\n    \\draw[blue, thick, domain=-2:2] plot (\\x, {\\x*\\x}) node[right] {\\textbf{$y = x^2$}};\n\n    % Label points\n    \\filldraw[red] (1,1) circle (2pt) node[anchor=south west] {$(1,1)$};\n    \\filldraw[red] (2,4) circle (2pt) node[anchor=south west] {$(2,4)$};\n    \\filldraw[red] (-1,1) circle (2pt) node[anchor=south east] {$(-1,1)$};\n    \\filldraw[red] (-2,4) circle (2pt) node[anchor=south east] {$(-2,4)$};\n\\end{tikzpicture}\n\n\\end{document}\n\nOutput:\n\n\n\n\nTikZ Diagram"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "blog-page",
+    "title": "Exposition Assignment J060",
     "section": "",
-    "text": "Post With Code\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\nFeb 25, 2025\n\n\nHarlow Malloc\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nFeb 22, 2025\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this blog"
-  },
-  {
-    "objectID": "posts/post-with-code/index.html",
-    "href": "posts/post-with-code/index.html",
-    "title": "Post With Code",
-    "section": "",
-    "text": "This is a post with executable code.\n\nHeading\nprint(\"Hello\")\n\\[\n\\int_0^1 e^{-x} dx\n\\]"
+    "text": "TikZ-Plotting\n\n\n\n\n\n\n\n\n\n\n\nFeb 25, 2025\n\n\nJ060 (Ananya Pawar,Ananya Patel,Manashree Ashtekar)\n\n\n\n\n\n\nNo matching items"
   }
 ]
