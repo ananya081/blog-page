@@ -1,0 +1,19 @@
+---
+title: "Post With Code"
+author: "Harlow Malloc"
+date: "2025-02-25"
+categories: [news, code, analysis]
+image: "image.jpg"
+---
+
+This is a post with executable code.
+
+# Heading
+
+```python
+print("Hello")
+```
+
+$$
+\int_0^1 e^{-x} dx
+$$
