@@ -176,6 +176,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
+<p>We are group J060 and we have been assigned TikZ-Plotting , A LaTeX package for creating vector graphics and plots for the Exposition Assignment.</p>
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
 <p><strong>TikZ</strong> is an extremely versatile LaTeX package used for creating high-quality vector graphics, diagrams, graphs and plots. It provides a flexible and structured way to generate complex illustrations directly within LaTeX documents.Hence it is an essential tool for scientific and technical publications. We can also make flowcharts and circuit diagrams using the various libraries that TikZ has to offer. We have discussed the same in the further sections.</p>
@@ -257,6 +258,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </figure>
 </div>
 </div>
+<ul>
+<li>We use the article class and load pgfplots.</li>
+<li><code>\pgfplotsset{compat=1.18}</code>ensures compatibility with PGFPlots version 1.18.</li>
+<li>We enter the TikZ Environment and begin tikzpicture for drawing and axis for a 3D plot.</li>
+<li>We then define Axis &amp; Labels, center axis lines, and label the x, y, and z axes.</li>
+<li>Now we define tick positions for x, y, and z and set the range (-2 to 2).</li>
+<li>We use viridis colormap and set samples = 20 for smooth rendering.</li>
+<li>We us <code>\addplot3[surf] {x^2 - y^2};</code> to generate the 3D surface plot.</li>
+<li>“enlargelimits=true” ensures that the plot does not get cropped at the edges.</li>
+</ul>
 </section>
 </section>
 <section id="flowchart" class="level2">
@@ -298,14 +309,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>“Process 2” is placed to the right of the decision node.</li>
 <li>A “Stop” node is placed below the decision node.</li>
 </ul></li>
-<li>“(start) – (process1)” draws an arrow from “Start” to “Process 1”.
+<li><code>\draw [arrow] (start) -- (process1)</code>draws an arrow from “Start” to “Process 1”.
 <ul>
 <li>Similarly we connect Process 1 to decision node.</li>
 <li>If the condition is Yes, we move right to “Process 2”.</li>
 <li>If the condition is No, we move downward to “Stop”.</li>
+<li><code>[thick,-&gt;,&gt;=stealth]</code>makes the line thicker and sets the arrowhead style to “stealth”, which is a sleek and modern design.</li>
 </ul></li>
 <li>From “Process 2”, we return to “Stop”.</li>
-<li>To end, we close the TikZ and document environment: This ends our flowchart and completes the document.</li>
+<li>To end, we close the TikZ and document environment: This ends our flowchart and completes the document. A detailed explanation of the same is given in the video.</li>
 </ul>
 <section id="output-2" class="level3">
 <h3 class="anchored" data-anchor-id="output-2">Output:</h3>
@@ -345,13 +357,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">tikzpicture</span>}</span>
 <span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">document</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>This LaTeX code uses the tikz package to draw a Cartesian plot.</li>
+<li>It creates a light gray grid for reference and plots the x-axis and y-axis as thick lines with arrows, labeling them accordingly.</li>
+<li>The function y=x² is drawn in blue over the interval [-2,2] with a label on the curve.</li>
+<li>Specific points on the parabola, including (1,1), (2,4), (-1,1), and (-2,4), are highlighted in red and labeled for clarity.</li>
+</ul>
 <section id="output-3" class="level3">
 <h3 class="anchored" data-anchor-id="output-3">Output:</h3>
 <div style="text-align: center;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="parabola.png" class="img-fluid figure-img"></p>
-<figcaption>TikZ Diagram</figcaption>
+<figcaption>Parabola</figcaption>
 </figure>
 </div>
 </div>
@@ -410,7 +428,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="references" class="level1">
 <h1>References</h1>
-<p>We have used Overleaf Website for codes and execution of the code.</p>
+<p>We have used Overleaf Website for codes and execution of the code (the images are generated using the codes itself): https://www.overleaf.com/project <br> Moroever to use Quarto to build websites, we referred to : https://quarto.org/docs/authoring/markdown-basics.html</p>
 
 
 </section>
